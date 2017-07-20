@@ -1,0 +1,12 @@
+<div class = "ui-g">
+  <div class = "ui-g-12">
+    <h1>Languages</h1>
+    <div class="ui-helper-clearfix" style="width:100%">
+        <button type="button" pButton icon="fa-plus"  label="Add Language" (click) = "addLanguage()"></button>
+    </div>
+    <br />
+    <p-dataTable [value]="languages" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+      <p-column field="name" header="Language" [sortable]="true"></p-column>
+    </p-dataTable>
+  </div>
+</div>

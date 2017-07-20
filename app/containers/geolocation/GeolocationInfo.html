@@ -1,0 +1,57 @@
+<div class = "ui-g">
+  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+    <p-panel header="GeoLocation Info">
+      <div class = "ui-g">
+        <div class = "ui-g-4"><label><strong>ID:</strong></label></div>
+        <div class = "ui-g-8 ui-md-6">{{ geolocation.id }}</div>
+      </div>
+
+      <div class = "ui-g">
+        <div class = "ui-g-4"><label><strong>Country:</strong></label></div>
+        <div class = "ui-g-8 ui-md-6">{{ country }}</div>
+      </div>
+
+      <div class = "ui-g">
+        <div class = "ui-g-4"><label><strong>State:</strong></label></div>
+        <div class = "ui-g-8 ui-md-6">{{ state }}</div>
+      </div>
+
+      <div class = "ui-g">
+        <div class = "ui-g-4"><label><strong>City:</strong></label></div>
+        <div class = "ui-g-8 ui-md-6">{{ city }}</div>
+      </div>
+
+      <div class = "ui-g">
+        <div class = "ui-g-4"><label><strong>ZIP Code:</strong></label></div>
+        <div class = "ui-g-8 ui-md-6">{{ zip }}</div>
+      </div>
+
+      <div class = "ui-g">
+        <div class = "ui-g-4"><label><strong>Latitude:</strong></label></div>
+        <div class = "ui-g-8 ui-md-6">{{ geolocation.latitude }}</div>
+      </div>
+
+      <div class = "ui-g">
+        <div class = "ui-g-4"><label><strong>Longitude:</strong></label></div>
+        <div class = "ui-g-8 ui-md-6">{{ geolocation.longitude }}</div>
+      </div>
+
+      <div class = "ui-g">
+        <div class = "ui-g-4"><label><strong>Status:</strong></label></div>
+        <div class = "ui-g-8 ui-md-6">{{ geolocation.status }}</div>
+      </div>
+
+
+      <div class = "ui-g">
+        <div class = "ui-g-12 ui-md-4">
+          <button type="button" pButton  label="Back" (click) = "back()" icon="ui-icon-arrow-back"></button>
+        </div>
+        <div class = "ui-g-12 ui-md-4">
+          <button type="button" class="btn ui-button-success"  pButton label = "Edit" (click) = "edit()" icon="ui-icon-edit"></button>
+        </div><div class = "ui-g-12 ui-md-4">
+          <button type="button" class="btn ui-button-danger"  pButton label = "Delete" (click) = "delete(geolocation.id)" icon="ui-icon-clear"></button>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>

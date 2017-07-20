@@ -1,0 +1,25 @@
+
+<div class = "ui-g">
+  <div class = "ui-g-12">
+    <h1>Countries</h1>
+    <div class="ui-helper-clearfix" style="width:100%">
+        <button type="button" pButton icon="fa-plus"  label="Add Country" (click) = "addCountry()" ></button>
+    </div>
+    <br />
+    <p-dataTable [value]="countries" selectionMode="single"  (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true" >
+      <p-column field="name" header="Country" [sortable]="true"></p-column>
+      <p-column field="languageId" header="Language" [sortable]="true">
+        <template let-col let-country="rowData" let-ri="rowIndex" pTemplate="body">
+            <span>{{ getLanguage(country.languageId) }}</span>
+        </template>
+      </p-column>
+      <p-column field="currencyId" header="Currency" [sortable]="true">
+        <template let-col let-country="rowData" let-ri="rowIndex" pTemplate="body">
+            <span>{{ getCurrency(country.currencyId) }}</span>
+        </template>
+      </p-column>
+      <p-column field="isoAlpha3" header="ISO Alpha" [sortable]="true"></p-column>
+      <p-column field="isoNumeric" header="ISO Numeric" [sortable]="true"></p-column>
+    </p-dataTable>
+  </div>
+</div>

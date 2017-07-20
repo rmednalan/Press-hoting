@@ -1,0 +1,90 @@
+<div class = "ui-g">
+  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid crud-form">
+    <p-panel header="Edit Country">
+      <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <div class = "error-message jw-text-danger">
+              <div *ngIf="complexForm.controls['name'].hasError('required') && complexForm.controls['name'].touched" class="alert alert-danger">You must enter a country name.</div>
+              <div *ngIf="complexForm.controls['isoAlpha2'].hasError('required') && complexForm.controls['isoAlpha2'].touched" class="alert alert-danger">ISO Alpha2 is required.</div>
+              <div *ngIf="complexForm.controls['isoAlpha3'].hasError('required') && complexForm.controls['isoAlpha3'].touched" class="alert alert-danger">ISO Alpha3 is required.</div>
+              <div *ngIf="complexForm.controls['isoNumeric'].hasError('required') && complexForm.controls['isoNumeric'].touched" class="alert alert-danger">ISO Numeric is required.</div>
+              <div *ngIf="complexForm.controls['currencyId'].hasError('required') && complexForm.controls['currencyId'].touched" class="alert alert-danger">Please select currency.</div>
+              <!--div *ngIf="complexForm.controls['languageId'].hasError('required') && complexForm.controls['languageId'].touched" class="alert alert-danger">Please select language.</div-->
+              <div *ngIf="complexForm.controls['latitude'].hasError('required') && complexForm.controls['latitude'].touched" class="alert alert-danger">Please enter latitude.</div>
+              <div *ngIf="complexForm.controls['longitude'].hasError('required') && complexForm.controls['longitude'].touched" class="alert alert-danger">Please enter longitude.</div>
+            </div>
+          </div>
+
+          <div class="ui-g-12">
+              <span class="md-inputfield">
+                <input type="text" class="form-control" id="name" [(ngModel)] = "country.name" [formControl]="complexForm.controls['name']"  name="name" pInputText required>
+                <label for="name">Country</label>
+              </span>
+          </div>
+
+          <div class="ui-g-12">
+              <span class="md-inputfield">
+                <input type="text" class="form-control"  [formControl]="complexForm.controls['isoAlpha2']"  name="isoAlpha2" [(ngModel)] = "country.isoAlpha2" pInputText required>
+                <label for="isoAlpha2">ISO Alpha2</label>
+              </span>
+          </div>
+
+          <div class="ui-g-12">
+              <span class="md-inputfield">
+                <input type="text" class="form-control" [(ngModel)] = "country.isoAlpha3" [formControl]="complexForm.controls['isoAlpha3']"  name="isoAlpha3" pInputText required>
+                <label for="isoAlpha3">ISO Alpha3</label>
+              </span>
+          </div>
+
+          <div class="ui-g-12">
+              <span class="md-inputfield">
+                <input type="number" class="form-control" [(ngModel)] = "country.isoNumeric" [formControl]="complexForm.controls['isoNumeric']"  name="isoNumeric" pInputText required>
+                <label for="isoNumeric">ISO Numeric</label>
+              </span>
+          </div>
+
+          <div class="ui-g-12">
+            <p-dropdown [options]="currencies" [autoWidth]="false" [(ngModel)] = "country.currencyId" [formControl]="complexForm.controls['currencyId']" name = "currencyId" required [filter]="true"></p-dropdown>
+          </div>
+
+          <!--div class="ui-g-12">
+            <p-dropdown [options]="languages" [autoWidth]="false" [(ngModel)] = "country.languageId" [formControl]="complexForm.controls['languageId']" name = "languageId" required [filter]="true"></p-dropdown>
+          </div-->
+
+          <div class="ui-g-12">
+            <span class="md-inputfield">
+              <h4><p-checkbox  binary="true" (onChange)="displaySelect($event)" [formControl]="complexForm.controls['checkbox']"></p-checkbox> {{ checkboxText }}</h4>
+            </span>
+          </div>
+
+          <div class="ui-g-12" [hidden]="isChecked">
+              <span class="md-inputfield">
+                <input type="number" class="form-control"  [formControl]="complexForm.controls['latitude']" step = "0.0001"  name="latitude" [(ngModel)] = "latitude" pInputText required>
+                <label for="latitude">Latitude</label>
+              </span>
+          </div>
+
+          <div class="ui-g-12" [hidden]="isChecked">
+              <span class="md-inputfield">
+                <input type="number" class="form-control"  [formControl]="complexForm.controls['longitude']" step = "0.0001"  name="longitude" [(ngModel)] = "longitude" pInputText required>
+                <label for="longitude">Longitude</label>
+              </span>
+          </div>
+
+          <div class="ui-g-12" [hidden]="!isChecked">
+                <p-dropdown [autoWidth]="false" [options]="geoLocations" [(ngModel)] = "country.geoLocationId"  [formControl]="complexForm.controls['geoLocationId']"  name = "geoLocationId" required [filter]="true"></p-dropdown>
+          </div>
+        </div>
+        <div class = "ui-g">
+            <div class="ui-g-12 ui-md-6">
+              <button type="button" label="Back" icon="ui-icon-arrow-back" (click) = "back()" pButton></button>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <button type="submit" label="Submit" icon="ui-icon-send" pButton class = "ui-button-info" [disabled]="!complexForm.valid"></button>
+            </div>
+        </div>
+      </form>
+    </p-panel>
+  </div>
+</div>

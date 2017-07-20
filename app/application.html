@@ -1,0 +1,332 @@
+
+<div [ngClass]="{'layout-wrapper':true,'layout-compact':layoutCompact}" [hidden] = "!isUserLoggedIn()">
+    <div [ngClass]="{'layout-container':true,'menu-layout-static':(layoutMode=='static'||layoutMode=='horizontal'),
+            'menu-layout-overlay':(layoutMode=='overlay'),'menu-layout-horizontal':(layoutMode=='horizontal')}">
+        <!-- Top Bar -->
+        <div class="topbar clearfix">
+            <div class="topbar-left">
+                <div class="logo"></div>
+            </div>
+
+            <div class="topbar-right">
+                <a id="menu-button" href="#">
+                    <i></i>
+                </a>
+
+                <a id="topbar-menu-button" href="#">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="topbar-items fadeInDown animated">
+                    <li class="profile-item" [hidden]="profileMode!='top'&&layoutMode!='horizontal'">
+                        <a href="#">
+                            <div class="profile-image"></div>
+                            <span class="topbar-item-name">Jane Williams</span>
+                        </a>
+
+                        <ul class="press-menu animated">
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">person</i>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">security</i>
+                                    <span>Privacy</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">settings_applications</i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">power_settings_new</i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                      <a href="#">
+                          <i class="topbar-icon material-icons">settings</i>
+                          <span class = "topbar-item-text">Settings</span>
+                          <span class="topbar-item-name">Settings</span>
+                      </a>
+
+                      <ul class="press-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">palette</i>
+                                <span>Change Theme</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">favorite_border</i>
+                                <span>Favorites</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">lock</i>
+                                <span>Lock Screen</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">wallpaper</i>
+                                <span>Wallpaper</span>
+                            </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">
+                          <i class="topbar-icon material-icons animated swing">help</i>
+                          <span class = "topbar-item-text">Help</span>
+                          <span class="topbar-item-name">Help</span>
+                      </a>
+
+                      <ul class="press-menu animated">
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message">
+                                <i class="material-icons">dashboard</i>
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message">
+                                <i class="material-icons">list</i>
+                                <span>Navigation</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message">
+        		                     <i class="material-icons">view_quilt</i>
+                                <span>Layout</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message">
+        			                   <i class="material-icons">chrome_reader_mode</i>
+                                <span>Content</span>
+                            </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">
+                          <i class="topbar-icon material-icons">build</i>
+                         <span class = "topbar-item-text">Manage</span>
+                          <span class="topbar-item-name">Manage</span>
+                      </a>
+
+                      <ul class="press-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">comment</i>
+                                <span>Comments</span>
+                            </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">
+                          <i class="topbar-icon material-icons">create</i>
+        		                <span class = "topbar-item-text">Edit</span>
+                          <span class="topbar-item-name">Edit</span>
+                      </a>
+
+                      <ul class="press-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">content_paste</i>
+                                <span>Posts</span>
+                            </a>
+                        </li>
+
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">collections</i>
+                                <span>Media</span>
+                            </a>
+                        </li>
+
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">content_copy</i>
+                                <span>Pages</span>
+                            </a>
+                        </li>
+
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">group</i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#">
+                          <i class="topbar-icon material-icons">add</i>
+        	                <span class = "topbar-item-text">Add</span>
+                          <span class="topbar-item-name">Add</span>
+                      </a>
+
+                      <ul class="press-menu animated">
+                        <li role="menuitem">
+                            <a href="#/new-post">
+                                <i class="material-icons">content_paste</i>
+                                <span>Posts</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">collections</i>
+                                <span>Media</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">content_copy</i>
+                                <span>Pages</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="material-icons">group</i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <div [ngClass]="{'layout-menu':true,'layout-menu-dark':darkMenu}">
+            <div class="nano">
+                <div class="nano-content menu-scroll-content">
+                    <div class="profile" [hidden]="profileMode!='inline'||layoutMode=='horizontal'">
+                        <div class="profile-image"></div>
+                        <a id="profile-options" href="#">
+                            <span class="profile-name">Jane Williams</span>
+                            <i class="material-icons">keyboard_arrow_down</i>
+                        </a>
+                    </div>
+
+                    <ul id="profile-menu" class="press-menu" [hidden]="profileMode!='inline'">
+                        <li role="menuitem">
+                            <a href="#" class="ripplelink">
+                                <i class="material-icons">person</i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="ripplelink">
+                                <i class="material-icons">security</i>
+                                <span>Privacy</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="ripplelink">
+                                <i class="material-icons">settings_application</i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="ripplelink" (click)="logout()">
+                                <i class="material-icons">power_settings_new</i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul id="main-menu" class="press-menu clearfix">
+                        <li role="menuitem" [routerLinkActive]="['active-menuitem']"><a [routerLink]="['/dashboard']"><i class="material-icons">dashboard</i><span>Dashboard</span></a></li>
+
+                        <li role="menuitem"><a href="#" class="ripplelink"><i class="material-icons">settings_application</i><span>System</span><i class="material-icons">keyboard_arrow_down</i></a>
+                            <ul role="menu" [style.display]="isSubmenuActive()">
+
+                                <li role="menuitem" [routerLinkActive]="['active-menuitem']">
+                                  <a [routerLink]="['/countries']" class="ripplelink" >
+                                    <i class="material-icons">location_on</i>
+                                    <span>Countries</span>
+                                  </a>
+                                </li>
+
+                                <li role="menuitem" [routerLinkActive]="['active-menuitem']">
+                                  <a [routerLink]="['/languages']" class="ripplelink" >
+                                    <i class="material-icons">translate</i>
+                                    <span>Languages</span>
+                                  </a>
+                                </li>
+
+                                <li role="menuitem" [routerLinkActive]="['active-menuitem']">
+                                  <a [routerLink]="['/currencies']" class="ripplelink" >
+                                    <i class="material-icons">attach_money</i>
+                                    <span>Currencies</span>
+                                  </a>
+                                </li>
+
+                                <li role="menuitem" [routerLinkActive]="['active-menuitem']">
+                                  <a [routerLink]="['/geoLocations']" class="ripplelink" >
+                                    <i class="material-icons">my_location</i>
+                                    <span>GeoLocations</span>
+                                  </a>
+                                </li>
+
+                                <li role="menuitem" [routerLinkActive]="['active-menuitem']">
+                                  <a [routerLink]="['/states']" class="ripplelink" >
+                                    <i class="material-icons">account_balance</i>
+                                    <span>States</span>
+                                  </a>
+                                </li>
+
+                                <li role="menuitem" [routerLinkActive]="['active-menuitem']">
+                                  <a [routerLink]="['/cities']" class="ripplelink" >
+                                    <i class="material-icons">location_city</i>
+                                    <span>Cities</span>
+                                  </a>
+                                </li>
+
+                                <li role="menuitem" [routerLinkActive]="['active-menuitem']">
+                                  <a [routerLink]="['/regions']" class="ripplelink" >
+                                    <i class="material-icons">public</i>
+                                    <span>Regions</span>
+                                  </a>
+                                </li>
+
+                                <li role="menuitem" [routerLinkActive]="['active-menuitem']">
+                                  <a [routerLink]="['/zip-codes']" class="ripplelink" >
+                                    <i class="material-icons">local_post_office</i>
+                                    <span>ZIP Codes</span>
+                                  </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-main">
+            <router-outlet></router-outlet>
+            <div class="footer">
+                <div class="card clearfix">
+                    <span class="footer-text-left">PRESS.HOSTING</span>
+                    <span class="footer-text-right"><span class="ui-icon ui-icon-copyright"></span>  <span>All Rights Reserved</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div [hidden] = "isUserLoggedIn()">
+  <press-login></press-login>
+</div>

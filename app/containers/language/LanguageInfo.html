@@ -1,0 +1,28 @@
+<div class = "ui-g">
+  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+    <p-panel header="Language Info">
+      <div class = "ui-g">
+        <div class = "ui-g-3"><label><strong>ID:</strong></label></div>
+        <div class = "ui-g-9 ui-md-6">{{ language.id }}</div></div>
+      <div class = "ui-g">
+        <div class = "ui-g-3"><label><strong>Name:</strong></label></div>
+        <div class = "ui-g-9 ui-md-6">{{ language.name }}</div>
+      </div>
+      <div class = "ui-g">
+        <div class = "ui-g-3"><label><strong>Status:</strong></label></div>
+        <div class = "ui-g-9 ui-md-6">{{ language.status }}</div>
+      </div>
+
+      <div class = "ui-g">
+        <div class = "ui-g-12 ui-md-4">
+          <button type="button" pButton  label="Back" (click) = "back()" icon="ui-icon-arrow-back"></button>
+        </div>
+        <div class = "ui-g-12 ui-md-4">
+          <button type="button" class="btn ui-button-success"  pButton label = "Edit" (click) = "edit()" icon="ui-icon-edit"></button>
+        </div><div class = "ui-g-12 ui-md-4">
+          <button type="button" class="btn ui-button-danger"  pButton label = "Delete" (click) = "delete(language.id)" icon="ui-icon-clear"></button>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>

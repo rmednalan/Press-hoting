@@ -1,0 +1,17 @@
+<div class = "ui-g">
+  <div class = "ui-g-12">
+    <h1>ZIP Codes</h1>
+    <div class="ui-helper-clearfix" style="width:100%">
+        <button type="button" pButton icon="fa-plus"  label="Add ZIP Code" (click) = "add()"></button>
+    </div>
+    <br />
+    <p-dataTable [value]="zipcodes" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+      <p-column field="code" header="ZIP Codes" [sortable]="true"></p-column>
+      <p-column field="cityId" header="City" [sortable]="true">
+        <template let-col let-zip="rowData" let-ri="rowIndex" pTemplate="body">
+            <span>{{ getCity(zip.cityId) }}</span>
+        </template>
+      </p-column>
+    </p-dataTable>
+  </div>
+</div>

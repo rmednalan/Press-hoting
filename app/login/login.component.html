@@ -1,0 +1,22 @@
+<div class = "ui-g">
+	<div class = "ui-g-6 ui-md-5 ui-lg-4 jw-login-container" >
+		<h2>Login to Press.Hosting</h2>
+		<form class = "jw-login-form">
+			<span class = "jw-text-danger" [innerHTML]="errorMsg"></span>
+			<div class = "jw-form-group" >
+				<label>Username:</label>
+				<input type = "text" name = "username" [(ngModel)]="user.username" id = "username" />
+
+			</div>
+
+			<div class = "jw-form-group">
+				<label>Password:</label>
+				<input type = "password" name = "password" [(ngModel)]="user.password"/>
+			</div>
+
+			<div class = "jw-form-group">
+				<input type = "submit" value = "Login" (click)="login()" />
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,39 @@
+<div class = "ui-g">
+  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid crud-form">
+    <p-panel header="Edit Geolocation">
+      <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <div class = "error-message jw-text-danger">
+              {{ error_message }}
+              <div *ngIf="complexForm.controls['latitude'].hasError('required') && complexForm.controls['latitude'].touched" class="alert alert-danger">Latitude is required.</div>
+              <div *ngIf="complexForm.controls['longitude'].hasError('required') && complexForm.controls['longitude'].touched" class="alert alert-danger">Longitude is required.</div>
+            </div>
+          </div>
+
+          <div class="ui-g-12">
+              <span class="md-inputfield">
+                  <input type="number" class="form-control"  [formControl]="complexForm.controls['latitude']" [(ngModel)] = "geolocation.latitude" step = "0.0001" name="latitude" pInputText required>
+                  <label for="latitude">Latitude</label>
+              </span>
+          </div>
+
+          <div class="ui-g-12">
+              <span class="md-inputfield">
+                    <input type="number" class="form-control" [formControl]="complexForm.controls['longitude']" [(ngModel)] = "geolocation.longitude" step = "0.0001"  name="longitude" pInputText required>
+                  <label for="longitude">Longitude</label>
+              </span>
+          </div>
+        </div>
+        <div class = "ui-g">
+            <div class="ui-g-12 ui-md-6">
+              <button type="button" label="Back" icon="ui-icon-arrow-back" (click) = "back()" pButton></button>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <button type="submit" label="Submit" icon="ui-icon-send" pButton class = "ui-button-info" [disabled]="!complexForm.valid"></button>
+            </div>
+        </div>
+      </form>
+    </p-panel>
+  </div>
+</div>

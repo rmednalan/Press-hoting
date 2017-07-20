@@ -1,0 +1,27 @@
+<div class = "ui-g">
+  <div class = "ui-g-12">
+    <h1>Regions</h1>
+    <div class="ui-helper-clearfix" style="width:100%">
+        <button type="button" pButton icon="fa-plus"  label="Add Region" (click) = "add()"></button>
+    </div>
+    <br />
+    <p-dataTable [value]="regions" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+      <p-column field="name" header="Region" [sortable]="true"></p-column>
+      <p-column field="cityId" header="City" [sortable]="true">
+        <template let-col let-region="rowData" let-ri="rowIndex" pTemplate="body">
+            <span>{{ getCity(region.cityId) }}</span>
+        </template>
+      </p-column>
+      <p-column field="stateId" header="State" [sortable]="true">
+        <template let-col let-region="rowData" let-ri="rowIndex" pTemplate="body">
+            <span>{{ getState(region.stateId) }}</span>
+        </template>
+      </p-column>
+      <p-column field="countryId" header="Country" [sortable]="true">
+        <template let-col let-region="rowData" let-ri="rowIndex" pTemplate="body">
+            <span>{{ getCountry(region.countryId) }}</span>
+        </template>
+      </p-column>
+    </p-dataTable>
+  </div>
+</div>

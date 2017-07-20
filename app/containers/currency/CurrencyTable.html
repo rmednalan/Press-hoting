@@ -1,0 +1,15 @@
+<div class = "ui-g">
+  <div class = "ui-g-12">
+    <h1>Currencies</h1>
+    <div class="ui-helper-clearfix" style="width:100%">
+        <button type="button" pButton icon="fa-plus"  label="Add Currency" (click) = "addCurrency()"></button>
+    </div>
+    <br />
+    <p-dataTable [value]="currencies" selectionMode="single"  (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+      <p-column field="name" header="Currency" [sortable]="true"></p-column>
+      <p-column field="symbol" header="Symbol" [sortable]="true"></p-column>
+      <p-column field="isoAlpha3" header="ISO Alpha" [sortable]="true"></p-column>
+      <p-column field="isoNumeric" header="ISO Numeric" [sortable]="true"></p-column>
+    </p-dataTable>
+  </div>
+</div>

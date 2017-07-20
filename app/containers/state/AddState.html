@@ -1,0 +1,62 @@
+<div class = "ui-g">
+  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid crud-form">
+    <p-panel header="Add State">
+      <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <div class = "error-message jw-text-danger">
+              <div *ngIf="complexForm.controls['name'].hasError('required') && complexForm.controls['name'].touched" class="alert alert-danger">Please enter state name.</div>
+              <div *ngIf="complexForm.controls['countryId'].hasError('required') && complexForm.controls['countryId'].touched" class="alert alert-danger">Please select country.</div>
+              <div *ngIf="complexForm.controls['latitude'].hasError('required') && complexForm.controls['latitude'].touched" class="alert alert-danger">Please enter latitude.</div>
+              <div *ngIf="complexForm.controls['longitude'].hasError('required') && complexForm.controls['longitude'].touched" class="alert alert-danger">Please enter longitude.</div>
+              <div *ngIf="complexForm.controls['geoLocationId'].hasError('required') && complexForm.controls['geoLocationId'].touched" class="alert alert-danger">Please select geolocation.</div>
+            </div>
+          </div>
+
+          <div class="ui-g-12">
+              <span class="md-inputfield">
+                <input type="text" class="form-control" id="name" [formControl]="complexForm.controls['name']"  name="name" pInputText required>
+                <label for="name">State</label>
+              </span>
+          </div>
+
+          <div class="ui-g-12">
+            <p-dropdown [options]="countries" [autoWidth]="false" [formControl]="complexForm.controls['countryId']" name = "countryId" required [filter]="true"></p-dropdown>
+          </div>
+
+          <div class="ui-g-12">
+              <span class="md-inputfield">
+                <h4><p-checkbox  binary="true" (onChange)="displaySelect($event)" [formControl]="complexForm.controls['checkbox']"></p-checkbox> {{ checkboxText }}</h4>
+              </span>
+          </div>
+
+          <div class="ui-g-12" [hidden]="isChecked">
+              <span class="md-inputfield">
+                <input type="number" class="form-control"  [formControl]="complexForm.controls['latitude']" step = "0.0001"  name="latitude" pInputText>
+                <label for="latitude">Latitude</label>
+              </span>
+          </div>
+
+          <div class="ui-g-12" [hidden]="isChecked">
+              <span class="md-inputfield">
+                <input type="number" class="form-control"  [formControl]="complexForm.controls['longitude']" step = "0.0001"  name="longitude" pInputText>
+                <label for="longitude">Longitude</label>
+              </span>
+          </div>
+
+          <div class="ui-g-12" [hidden]="!isChecked">
+                <p-dropdown [autoWidth]="false" [options]="geoLocations" [formControl]="complexForm.controls['geoLocationId']"  name = "geoLocationId" required [filter]="true"></p-dropdown>
+          </div>
+        </div>
+        <div class = "ui-g">
+            <div class="ui-g-12 ui-md-6">
+              <button type="button" label="Back" icon="ui-icon-arrow-back" (click) = "back()" pButton></button>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <button type="submit" label="Submit" icon="ui-icon-send" pButton class = "ui-button-info" [disabled]="!complexForm.valid"></button>
+            </div>
+        </div>
+      </form>
+    </p-panel>
+  </div>
+</div>

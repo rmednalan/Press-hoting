@@ -1,0 +1,47 @@
+{
+  "name": "press.hosting-admin-ui",
+  "version": "1.0.0",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "webpack": "webpack",
+    "webpack:w": "webpack -w",
+    "webpack-dev-server": "webpack-dev-server --inline",
+    "start": "npm run webpack-dev-server"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@angular/common": "~2.2.3",
+    "@angular/compiler": "~2.2.3",
+    "@angular/compiler-cli": "~2.2.3",
+    "@angular/core": "~2.2.3",
+    "@angular/forms": "~2.2.3",
+    "@angular/http": "~2.2.3",
+    "@angular/platform-browser": "~2.2.3",
+    "@angular/platform-browser-dynamic": "~2.2.3",
+    "@angular/router": "~3.2.0",
+    "@angular/upgrade": "~2.2.3",
+    "@ngrx/router-store": "^1.2.5",
+    "@ngrx/store": "^2.2.1",
+    "angular-in-memory-web-api": "~0.1.13",
+    "core-js": "^2.4.1",
+    "ng2-redux": "^5.1.2",
+    "primeng": "^1.0.0-rc.4",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "^0.6.25"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.45",
+    "ts-loader": "^0.9.5",
+    "typescript": "^2.0.3",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "1.16.2",
+    "gulp": "^3.9.1",
+    "gulp-zip": "^3.2.0",
+    "gulp-flatten": "^0.2.0"
+  }
+}

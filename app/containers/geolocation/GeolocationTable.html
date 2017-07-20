@@ -1,0 +1,33 @@
+<div class = "ui-g">
+  <div class = "ui-g-12">
+    <h1>GeoLocations</h1>
+    <div class="ui-helper-clearfix" style="width:100%">
+        <button type="button" pButton icon="fa-plus"  label="Add Geolocation" (click) = "addGeolocation()"></button>
+    </div>
+    <br />
+    <p-dataTable [value]="geolocations" selectionMode="single"  (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+      <p-column field="id" header="Country" [sortable]="true">
+        <template let-col let-car="rowData" let-ri="rowIndex" pTemplate="body">
+            <span>{{ getCountry(car.id) }}</span>
+        </template>
+      </p-column>
+      <p-column field="id" header="State" [sortable]="true">
+        <template let-col let-car="rowData" let-ri="rowIndex" pTemplate="body">
+            <span>{{ getState(car.id) }}</span>
+        </template>
+      </p-column>
+      <p-column field="id" header="City" [sortable]="true">
+        <template let-col let-car="rowData" let-ri="rowIndex" pTemplate="body">
+            <span>{{ getCity(car.id) }}</span>
+        </template>
+      </p-column>
+      <p-column field="id" header="ZIP Code" [sortable]="true">
+        <template let-col let-car="rowData" let-ri="rowIndex" pTemplate="body">
+            <span>{{ getZip(car.id) }}</span>
+        </template>
+      </p-column>
+      <p-column field="latitude" header="Latitude" [sortable]="true"></p-column>
+      <p-column field="longitude" header="Longitude" [sortable]="true"></p-column>
+    </p-dataTable>
+  </div>
+</div>

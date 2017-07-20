@@ -1,0 +1,4 @@
+{
+  "apiUrl": "http://staging.press.hosting:9000/api/v1",
+  "debugging": true
+}

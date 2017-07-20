@@ -1,0 +1,17 @@
+<div class = "ui-g">
+  <div class = "ui-g-12">
+    <h1>States</h1>
+    <div class="ui-helper-clearfix" style="width:100%">
+        <button type="button" pButton icon="fa-plus"  label="Add State" (click) = "add()"></button>
+    </div>
+    <br />
+    <p-dataTable [value]="states" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+      <p-column field="name" header="State" [sortable]="true"></p-column>
+      <p-column field="countryId" header="Country" [sortable]="true">
+        <template let-col let-state="rowData" let-ri="rowIndex" pTemplate="body">
+            <span>{{ getCountry(state.countryId) }}</span>
+        </template>
+      </p-column>
+    </p-dataTable>
+  </div>
+</div>

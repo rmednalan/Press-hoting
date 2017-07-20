@@ -1,0 +1,52 @@
+<div class = "ui-g">
+  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid crud-form">
+      <p-panel header="Add Currency">
+          <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+            <div class="ui-g">
+                <div class="ui-g-12">
+                  <div class = "error-message jw-text-danger">
+                    {{ error_message }}
+                    <div *ngIf="complexForm.controls['name'].hasError('required') && complexForm.controls['name'].touched" class="alert alert-danger">You must enter a currency.</div>
+                    <div *ngIf="complexForm.controls['symbol'].hasError('required') && complexForm.controls['symbol'].touched" class="alert alert-danger">You must enter a symbol.</div>
+                    <div *ngIf="complexForm.controls['isoAlpha3'].hasError('required') && complexForm.controls['isoAlpha3'].touched" class="alert alert-danger">ISO Alpha is required.</div>
+                    <div *ngIf="complexForm.controls['isoNumeric'].hasError('required') && complexForm.controls['isoNumeric'].touched" class="alert alert-danger">ISO Numeric is required.</div>
+                    <!--div *ngIf="complexForm.controls['languageId'].hasError('required') && complexForm.controls['languageId'].touched" class="alert alert-danger">Language is required.</div--->
+                  </div>
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                        <input type="text" class="form-control" id="name" [formControl]="complexForm.controls['name']"  name="name" pInputText required>
+                        <label for="name">Currency</label>
+                    </span>
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                        <input type="text" class="form-control" id="symbol" [formControl]="complexForm.controls['symbol']"  name="symbol" pInputText required>
+                        <label for="symbol">Symbol</label>
+                    </span>
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                      <input type="text" class="form-control"  [formControl]="complexForm.controls['isoAlpha3']"  name="isoAlpha3" pInputText required>
+                      <label for="isoAlpha3">ISO Alpha3</label>
+                    </span>
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                      <input type="number" class="form-control" [formControl]="complexForm.controls['isoNumeric']"  name="isoNumeric" pInputText required>
+                      <label for="isoNumeric">ISO Numeric</label>
+                    </span>
+                </div>
+            </div>
+            <div class = "ui-g">
+                <div class="ui-g-12 ui-md-6">
+                  <button type="button" label="Back" icon="ui-icon-arrow-back" (click) = "back()" pButton></button>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                  <button type="submit" label="Submit" icon="ui-icon-send" pButton class = "ui-button-info" [disabled]="!complexForm.valid"></button>
+                </div>
+            </div>
+          </form>
+      </p-panel>
+  </div>
+</div>

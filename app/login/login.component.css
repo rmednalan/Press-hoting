@@ -1,0 +1,44 @@
+.layout-mask{
+	display:none;
+}
+
+.jw-login-container
+{
+	margin: 10% auto;
+	background:#3F51B5;
+	padding:20px;
+	color:#fff;
+}
+
+.jw-login-container h1{text-align:center;}
+
+.jw-form-group label{font-weight:bold;}
+.jw-form-group input[type="text"],
+.jw-form-group input[type="password"]
+{
+	width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.jw-form-group input[type="submit"]
+{
+	color: #000;
+    background-color: #bebebe;
+    border: 1px solid #ababab;
+    font-weight: 600;
+    padding: 10px 30px;
+    margin: 10px 0;
+}
+
+.jw-alert{
+	padding:10px;
+	border-radius:5px;
+}
+
+.jw-alert-danger{
+	background:#ffb2b2;
+	border:1px solid red;
+}
+
+.jw-text-danger{color:#ff9999;font-weight:600;font-size:15px;}

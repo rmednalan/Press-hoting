@@ -1,0 +1,29 @@
+<div class = "ui-g">
+  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid crud-form">
+      <p-panel header="Add Language">
+          <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+            <div class="ui-g">
+                <div class="ui-g-12">
+                  <div class = "error-message jw-text-danger">
+                    <div *ngIf="complexForm.controls['name'].hasError('required') && complexForm.controls['name'].touched" class="alert alert-danger">You must enter a language.</div>
+                  </div>
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                        <input type="text" class="form-control" id="name" [formControl]="complexForm.controls['name']"  name="name" pInputText required>
+                        <label for="name">Language</label>
+                    </span>
+                </div>
+            </div>
+            <div class = "ui-g">
+                <div class="ui-g-12 ui-md-6">
+                  <button type="button" label="Back" icon="ui-icon-arrow-back" (click) = "back()" pButton></button>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                  <button type="submit" label="Submit" icon="ui-icon-send" pButton class = "ui-button-info" [disabled]="!complexForm.valid"></button>
+                </div>
+            </div>
+          </form>
+      </p-panel>
+  </div>
+</div>
